@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--CSS AVANT UI KIT-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/avantui.css">
+    <link rel="stylesheet" href="/styles/css/style.css">
+    <title>Monster Travel</title>
+</head>
+<body>
+  <!--MENU + BOX SHADOW-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white" style="box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);">
+    <a class="navbar-brand" href="#">
+        <div id="logo"></div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLight" aria-controls="navbarLight" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarLight">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Vuelos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Alojamientos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Explora</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Reviews</a>
+            </li>
+          </ul>
+          <!--AVATAR CON MENU DESPLEGABLE-->
+          <ul style="list-style: none;">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img class="avatar" src="/styles/imagen/avatar.png">
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Perfil</a>
+                  <a class="dropdown-item" href="#">Notificaciones</a>
+                  <a class="dropdown-item" href="#">Configuracion</a>
+                  <a class="dropdown-item" href="#">Salir</a>
+              </div>
+          </li>
+          </ul>
+    </div>
+</nav>
+<main>
+
+    <!--BOOKING-->
+  <div class="box1">
+    <div class="text-anim">
+    <h2><b>¿Dónde será tu siguiente aventura?</b></h2>
+    <div id="monster"></div>
+    </div>
+    <div class="col-md-7 col-md-offset-1">
+    <div class="booking-form">
+    <form>
+    <div class="form-group">
+    <div class="form-checkbox">
+    <label for="roundtrip">
+    <input type="radio" id="roundtrip" name="flight-type">
+    <span></span>Vuelo rendondo
+    </label>
+    <label for="one-way">
+    <input type="radio" id="one-way" name="flight-type">
+    <span></span>vuelo sencillo
+    </label>
+    <label for="multi-city">
+    <input type="radio" id="multi-city" name="flight-type">
+    <span></span>Multidestino
+    </label>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-6">
+    <div class="form-group">
+    <span class="form-label">Origen</span>
+    <input class="form-control" type="text" placeholder="Ciudad o Aeropuerto">
+    </div>
+    </div>
+    <div class="col-md-6">
+    <div class="form-group">
+    <span class="form-label">Destino</span>
+    <input class="form-control" type="text" placeholder="Ciudad o Aeropuerto">
+    </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-6">
+    <div class="form-group">
+    <span class="form-label">Salida</span>
+    <input class="form-control" type="date" required>
+    </div>
+    </div>
+    <div class="col-md-6">
+    <div class="form-group">
+    <span class="form-label">Regreso</span>
+    <input class="form-control" type="date" required>
+    </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-4">
+    <div class="form-group">
+    <span class="form-label">Adultos (18+)</span>
+    <select class="form-control">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    </select>
+    <span class="select-arrow"></span>
+    </div>
+    </div>
+    <div class="col-md-4">
+    <div class="form-group">
+    <span class="form-label">Niños (0-17)</span>
+    <select class="form-control">
+    <option>0</option>
+    <option>1</option>
+    <option>2</option>
+    </select>
+    <span class="select-arrow"></span>
+    </div>
+    </div>
+    <div class="col-md-4">
+    <div class="form-group">
+    <span class="form-label">Clase</span>
+    <select class="form-control">
+    <option>Económica</option>
+    <option>Ejecutiva</option>
+    <option>Primera Clase</option>
+    </select>
+    <span class="select-arrow"></span>
+    </div>
+    </div>
+    </div>
+    <div class="form-btn">
+    <button class="submit-btn">Buscar</button>
+    </div>
+    </form>
+    </div>
+    </div>
+  </div>
+
+  <!--MULTY-ITEM CARRUCEL PAQUETES -->
+  <div class="box2">
+    <p class="texto-recomendado"><b>Recomendados para ti</b></p>
+  </div>
+  <div class="recomendados">
+    <div class="container my-4">
+      <hr class="my-4">
+      <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+        <!--Controless-->
+        <div class="controls-top">
+          <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
+          <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right"></i></a>
+        </div>
+        
+        <ol class="carousel-indicators">
+          <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+          <li data-target="#multi-item-example" data-slide-to="1"></li>
+          <li data-target="#multi-item-example" data-slide-to="2"></li>
+        </ol>
+
+        <div class="carousel-inner" role="listbox">
+  
+          <!--First slide-->
+          <div class="carousel-item active">
+  
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card mb-2">
+                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
+                    alt="Card image cap">
+                  <div class="card-body">
+                    <h4 class="card-title">Machu Picchu</h4>
+                    <p class="card-text">
+                      No es de extrañar que el Machu Picchu sea el lugar más visitado del Perú. 
+                      Esta maravilla arquitectónica de piedra caliza, sin argamasa, que data de mediados del siglo XV, 
+                      está situada en una elevada meseta en las profundidades de la selva amazónica.
+                    </p>
+                    <a class="btn btn-primary">Ver Oferta</a>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-md-4 clearfix d-none d-md-block">
+                <div class="card mb-2">
+                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
+                    alt="Card image cap">
+                  <div class="card-body">
+                    <h4 class="card-title">Miami Beach</h4>
+                    <p class="card-text">
+                      Miami Beach tiene la esencia de Miami, con playas bañadas por el sol, 
+                      centelleantes piscinas de hoteles y una increíble vida nocturna. 
+                      La acción se centra en South Beach, 
+                      una importante y glamorosa zona llena de establecimientos de lujo, 
+                      puestos de avanzada con chefs reconocidos 
+                    </p>
+                    <a class="btn btn-primary">Ver Oferta</a>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-md-4 clearfix d-none d-md-block">
+                <div class="card mb-2">
+                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg"
+                    alt="Card image cap">
+                  <div class="card-body">
+                    <h4 class="card-title">Playa Mujeres</h4>
+                    <p class="card-text">Playa Mujeres es un lugar íntimo a la orilla del mar en el Caribe mexicano
+                      perfecto para tu viaje a Cancún. Integrada con respeto en el paisaje natural 
+                      Playa Mujeres es un apacible lugar donde la belleza natural y las cualidades regeneradoras del agua traen relax y renovación.
+                    </p>
+                    <a class="btn btn-primary">Ver Oferta</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+          <!--/.First slide-->
+  
+          <!--Second slide-->
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card mb-2">
+                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+                    alt="Card image cap">
+                  <div class="card-body">
+                    <h4 class="card-title">Londres</h4>
+                    <p class="card-text">
+                      Londres es una ciudad con muchas capas de historia, donde lo medieval y lo victoriano complementan un mundo abundante y moderno.
+                      La Torre de Londres y Westminster están rodeados de pubs y mercados localesy antiguos rituales.
+                    </p>
+                    <a class="btn btn-primary">Ver Ofertas</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 clearfix d-none d-md-block">
+                <div class="card mb-2">
+                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg"
+                    alt="Card image cap">
+                  <div class="card-body">
+                    <h4 class="card-title">Hollywood</h4>
+                    <p class="card-text">
+                      Relájate en la playa o camina por el paseo peatonal en la hermosa comunidad costera de Hollywood.
+                      Pasea en encantadores trolebuses de la playa al centro, donde te puedes empapar en la rica cultura del área, visitar uno de los numerosos museos
+                      
+                    </p>
+                    <a class="btn btn-primary">Ver Ofertas</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 clearfix d-none d-md-block">
+                <div class="card mb-2">
+                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg"
+                    alt="Card image cap">
+                  <div class="card-body">
+                    <h4 class="card-title">Los Ángeles</h4>
+                    <p class="card-text"> 
+                      ¿Estás buscando un poco de glamur de alfombra roja de Tinseltown? Haz tours por estudios cinematográficos, 
+                      para otro tipo de contemplación de estrellas, mira a través de los telescopios del Observatorio Griffith.
+                    </p>
+                    <a class="btn btn-primary">Ver Ofertas</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card mb-2">
+                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg"
+                    alt="Card image cap">
+                  <div class="card-body">
+                    <h4 class="card-title">Card title</h4>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                      card's content.</p>
+                    <a class="btn btn-primary">Button</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 clearfix d-none d-md-block">
+                <div class="card mb-2">
+                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(45).jpg"
+                    alt="Card image cap">
+                  <div class="card-body">
+                    <h4 class="card-title">Card title</h4>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                      card's content.</p>
+                    <a class="btn btn-primary">Button</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 clearfix d-none d-md-block">
+                <div class="card mb-2">
+                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(51).jpg"
+                    alt="Card image cap">
+                  <div class="card-body">
+                    <h4 class="card-title">Card title</h4>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                      card's content.</p>
+                    <a class="btn btn-primary">Button</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Mapa Explora-->
+<div class="explora">
+  <did>
+  <p>
+    <b>Explora</b>
+  </p>
+  <div class="mapa">
+<div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+  <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+    style="border:0" allowfullscreen></iframe>
+  </div>
+</div>
+</did>
+</div>
+
+<!--CARRUCEL DE POST-->
+
+<div class="box3">
+  <p class="texto-recomendado"><b>Publicaciones Recientes</b></p>
+</div>
+<div class="recomendados">
+  <div class="container my-4">
+    <hr class="my-4">
+    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+      <!--Controls-->
+      <div class="controls-top">
+        <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
+        <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right"></i></a>
+      </div>
+      
+      <ol class="carousel-indicators">
+        <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+        <li data-target="#multi-item-example" data-slide-to="1"></li>
+        <li data-target="#multi-item-example" data-slide-to="2"></li>
+      </ol>
+
+      <div class="carousel-inner" role="listbox">
+
+        <!--First slide-->
+        <div class="carousel-item active">
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card mb-2">
+                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <div class="user-avatar">
+                    <img src="/styles/imagen/user01.png">
+                    <p>Pixelcos</p>
+                  </div>
+                  <h4 class="card-title">Machu Picchu</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                  <a class="btn btn-primary">Leer más</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <div class="user-avatar">
+                    <img src="/styles/imagen/user02.png">
+                    <p>Eugene</p>
+                  </div>
+                  <h4 class="card-title">Las mejores playas</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                  <a class="btn btn-primary">Leer más</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <div class="user-avatar">
+                    <img src="/styles/imagen/user03.png">
+                    <p>Mabelansen</p>
+                  </div>
+                  <h4 class="card-title">Card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                  <a class="btn btn-primary">Leer más</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!--/.First slide-->
+
+        <!--Second slide-->
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card mb-2">
+                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">Favoritos para el 2021</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                  <a class="btn btn-primary">Leer más</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                  <a class="btn btn-primary">Leer más</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                  <a class="btn btn-primary">Leer más</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card mb-2">
+                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                  <a class="btn btn-primary">Leer más</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(45).jpg"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                  <a class="btn btn-primary">Leer más</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(51).jpg"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                  <a class="btn btn-primary">Leer más</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer>
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <h5 class="text-uppercase">Acerca de</h5>
+        <p>Monster Travel es parte de Monster Inc. <br> Líder mundial en viajes online y servicios relacionados. </br></p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Nuestra Empresa</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Quiénes somos</a>
+          </li>
+          <li>
+            <a href="#!">Empleo</a>
+          </li>
+          <li>
+            <a href="#!">Movil</a>
+          </li>
+          <li>
+            <a href="#!">Cómo funcionan nuestros servicios</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Contactar</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Ayuda/Pregunta frecuentes</a>
+          </li>
+          <li>
+            <a href="#!">Prensa</a>
+          </li>
+          <li>
+            <a href="#!">Afiliados</a>
+          </li>
+          <li>
+            <a href="#!">Anunciate con nosotros</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a  style= "color: white" monstertravel.com> monstertravel.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+
+</footer>
+</main>
+
+</body>
+<!--BODYMOVING (LOTTIE TIENE QUE ESTAR PRIMERO QUE SCRIPT)-->
+<script src="/js/lottie.js"></script>
+<script src="/js/script.js"></script>
+<script src="/js/script2.js"></script>
+<!--AVANT  UI KIT-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+<script src="assets/js/avantui.js"></script>
+
+
+
+</html>
