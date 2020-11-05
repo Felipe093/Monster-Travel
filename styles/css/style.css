@@ -283,6 +283,7 @@ a:not([href]):not([tabindex]){
 .mapa {
 	margin-right: 167px;
 	margin-left: 167px;
+	background-color: #f8f9fa;
 }
 
 .map-container{
